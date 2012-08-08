@@ -240,6 +240,7 @@ def handle_file_upload(path, file):
     file_path = os.path.join(path, file.name)
     storage = FileSystemStorage(location=MEDIA_ROOT)
     uploadedfile = storage.save(file_path, file)
+    os.chmod(uploadedfile, 0755)
     return uploadedfile
 
 
